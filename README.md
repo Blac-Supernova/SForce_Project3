@@ -1,12 +1,18 @@
-# SForce_Project3
-Github repository for Revature project 3
+# Salesforce DX Project: Next Steps
 
-Minimum Viable Product:
+Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
-Create two lightning web components
-The first component should display a search box and button
-The second component should display lightning-card elements with each one displaying information about a case record 
-Pass the query from the search box in component 1 to component 2 
-component 2 is then responsible for taking the query and retrieving case records where the query can be found anywhere within a case description 
-neither component should be related to the other
+## How Do You Plan to Deploy Your Changes?
 
+Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+
+## Configure Your Salesforce DX Project
+
+The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+
+## Read All About It
+
+- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
+- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
+- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
+- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
