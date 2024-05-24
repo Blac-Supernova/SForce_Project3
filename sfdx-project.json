@@ -5,7 +5,7 @@
       "default": true
     }
   ],
-  "name": "SForce_Project3",
+  "name": "proj3",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "59.0"
