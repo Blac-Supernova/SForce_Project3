@@ -1,6 +1,7 @@
 import { LightningElement, api, wire } from 'lwc';
-import getMonthlyStatementsByContactId from '@salesforce/apex/MonthlyStatementsController.getMonthlyStatementsByContactId';
+import getMonthlyStatementsByUserId from '@salesforce/apex/MonthlyStatementsController.getMonthlyStatementsByUserId';
 import isGuest from '@salesforce/user/isGuest';
+import Id from '@salesforce/user/Id';
 
 const columns = [
     {label: 'Id', fieldName: 'Name'},
@@ -15,7 +16,7 @@ export default class MonthlyStatements extends LightningElement {
 
     columns = columns;
 
-    @wire(getMonthlyStatementsByContactId, {contactId: '003aj000002DxPJAA0'})
+    @wire(getMonthlyStatementsByUserId, {userId: Id})
     wiredStatements({error, data}) {
         if (data) {
             this.monthlyStatements = data;
