@@ -1,0 +1,17 @@
+<template>
+	<template lwc:if={loggedIn}>
+		<lightning-card title="Monthly Statements" icon-name="custom:custom63">
+			<template lwc:if={monthlyStatements}>
+				<lightning-datatable
+					hide-checkbox-column
+					key-field="Id"
+					data={monthlyStatements}
+					columns={columns}>
+				</lightning-datatable>
+			</template>
+			<template lwc:elseif={error}>
+				<p>{error}</p>
+			</template>
+		</lightning-card>
+	</template>
+</template>
