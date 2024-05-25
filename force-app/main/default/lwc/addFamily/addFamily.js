@@ -1,6 +1,8 @@
 import { LightningElement, track } from 'lwc';
 import { createRecord } from 'lightning/uiRecordApi';
 import CONTACT_OBJECT from '@salesforce/schema/Contact';
+import id from '@salesforce/user/Id';
+import getFamilyMembers from '@salesfroce/apex/ContactHelper.getFamilyMembers';
 export default class AddFamily extends LightningElement {
     
     @track firstName = '';
@@ -8,6 +10,11 @@ export default class AddFamily extends LightningElement {
     @track email = '';
     @track phone = '';
     @track title = '';
+    userId = id;
+
+    @wire(getFamilyMembers, {userId : "$userId"})
+    familyMembers;
+
 
 
     handleFirstNameChange(event) {
