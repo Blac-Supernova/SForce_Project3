@@ -3,6 +3,7 @@ import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 
 import isUserRentingProperty from '@salesforce/apex/CaseController.isUserRentingProperty'
+import getPropertyId from '@salesforce/apex/ContactController.getPropertyId';
 
 import CONTACT_ID from "@salesforce/schema/User.ContactId";
 import USER_ID from "@salesforce/user/Id";
@@ -23,7 +24,6 @@ export default class MaintenanceRequestForm extends LightningElement {
     @api messageBody;
 
     @api contactId;
-    //@api propertyId = 'a01ak00000IiWXdAAN';
     @api propertyId;
     @api maintenanceRecordTypeId;
 
@@ -33,6 +33,16 @@ export default class MaintenanceRequestForm extends LightningElement {
         if(data) {
             this.contactId = getFieldValue(data, CONTACT_ID);
             console.log(this.contactId);
+
+            // Get's property id where user is staying at
+            getPropertyId({contactId: this.contactId})
+            .then(result => {
+                this.propertyId = result;
+            }).
+            catch(error => {
+                console.log('Error: ' + JSON.stringify(error));
+            });
+            
         }
     }
 
@@ -59,7 +69,7 @@ export default class MaintenanceRequestForm extends LightningElement {
         let fields = event.detail.fields; 
         // Adds contact Id to maintenance request
         fields.ContactId = this.contactId;
-
+        console.log(this.propertyId);
         let isUserRentingProp = await isUserRentingProperty({contactId: this.contactId, propertyId: this.propertyId });
         
         // Makes sure user requesting maintenance is currently renting the property
