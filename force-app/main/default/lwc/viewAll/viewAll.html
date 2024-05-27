@@ -1,0 +1,18 @@
+<template>
+  <lightning-datatable
+    data={accounts}
+    columns={columns}
+    key-field="Id"
+    onrowselection={handleRowSelection}
+  >
+    <lightning-datatable-column field-name="Name" label="Account Name"></lightning-datatable-column>
+    <lightning-datatable-column field-name="Rating" label="Rating"></lightning-datatable-column>
+    <lightning-datatable-column field-name="Newbie" label="Newbie"></lightning-datatable-column>
+  </lightning-datatable>
+
+  <lightning-input
+    type="text"
+    label="Search Accounts"
+    oninput={handleSearch}
+  ></lightning-input>
+</template>
