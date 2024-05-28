@@ -13,10 +13,11 @@ export default class MonthlyStatements extends LightningElement {
     monthlyStatements;
     error;
 	loggedIn = !isGuest;
+    usersId = Id;
 
     columns = columns;
 
-    @wire(getMonthlyStatementsByUserId, {userId: Id})
+    @wire(getMonthlyStatementsByUserId, {userId: '$usersId'})
     wiredStatements({error, data}) {
         if (data) {
             this.monthlyStatements = data;
