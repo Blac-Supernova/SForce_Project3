@@ -1,15 +1,29 @@
 <template>
     <template lwc:if={propertyId}>
-        <lightning-record-view-form
-        object-api-name={objectApiName}
-        record-id={propertyId}
-        >
-        <lightning-output-field field-name={address}> </lightning-output-field>
-        <lightning-output-field field-name={description}> </lightning-output-field>
-        <lightning-output-field field-name={numberOfBaths}> </lightning-output-field>
-        <lightning-output-field field-name={numberOfBedrooms}> </lightning-output-field>
-        <lightning-output-field field-name={square}> </lightning-output-field>
-        <lightning-output-field field-name={petsAllowed}> </lightning-output-field>
-        </lightning-record-view-form>    
+        <template lwc:if={hasImages}>
+            <div class="slds-size_3-of-4">
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Property Images
+                    <lightning-carousel>
+                        <template for:each={propertyImages} for:item="image">
+                        <lightning-carousel-image
+                            src={image.imageURL}
+                            key={image.id}
+                            >
+                        </lightning-carousel-image>
+                        </template>
+                    </lightning-carousel>
+                </div>
+            </div>
+        </template>
+        
+        <lightning-record-view-form object-api-name={objectApiName} record-id={propertyId}>
+            <lightning-output-field field-name={address}></lightning-output-field>
+            <lightning-output-field field-name={description}></lightning-output-field>
+            <lightning-output-field field-name={numberOfBaths}></lightning-output-field>
+            <lightning-output-field field-name={numberOfBedrooms}></lightning-output-field>
+            <lightning-output-field field-name={square}></lightning-output-field>
+            <lightning-output-field field-name={petsAllowed}></lightning-output-field>
+        </lightning-record-view-form>
+    
     </template>
 </template>
