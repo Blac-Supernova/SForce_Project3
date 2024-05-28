@@ -1,7 +1,7 @@
 <template>
     <template lwc:if={propertyId}>
         <img src={propertyId.Image_URL__c} class="property-image"/>
-        <lightning-record-view-form
+        <lightning-record-view-form class = "viewForm  "
         object-api-name={objectApiName}
         record-id={propertyId}
         >
