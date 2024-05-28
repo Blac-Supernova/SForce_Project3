@@ -8,7 +8,7 @@ public without sharing class ContactHelper {
         try {
             user u = [SELECT Id, ContactId FROM User];
             Contact con = [SELECT Id, property__c.Id FROM Contact];
-            return [SELECT firstName, lastName FROM Contact WHERE property__c.Id = con.property__c.Id];
+            return [SELECT firstName, lastName FROM Contact WHERE property__c.Id = con.property__c.Id ];
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
