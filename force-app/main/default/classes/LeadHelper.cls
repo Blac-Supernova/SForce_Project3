@@ -40,7 +40,7 @@ global with sharing class LeadHelper {
        Contact newContact = [SELECT Id, FirstName, LastName, Email FROM Contact WHERE Id = :contactId];
 
        //profile for community user
-       Id profileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community User' LIMIT 1].Id;
+       Id profileId = [SELECT Id FROM Profile WHERE Name = 'Genie Properties User' LIMIT 1].Id;
        //Org name for usernames
        String orgName = '@empathetic-impala-qno2i4.com';
 
