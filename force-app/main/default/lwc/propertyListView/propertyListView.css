@@ -1,24 +1,24 @@
 .property-card {
-    border: 1px solid #dcdcdc;
+    border: 1px solid #b07f0f;
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 #3b2c0a;
     transition: 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: white;
+    background-color: #f9f3ea;
 }
 
 .property-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 #3b2c0a;
 }
 
 .property-image {
     width: 100%;
     height: auto;
-    border-bottom: 1px solid #dcdcdc;
+    border-bottom: 1px solid #b07f0f;
     margin-bottom: 10px;
 }
 
@@ -27,7 +27,4 @@
     justify-content: center;
     align-items: center;
     padding: 0;
-}
-lightning-button{
-    background-color: #b07f0f;
 }

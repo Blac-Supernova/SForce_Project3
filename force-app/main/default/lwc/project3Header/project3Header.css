@@ -1,12 +1,9 @@
-
-
 .header-container {
     background-color: black;
     padding: 1rem;
     align-items: center;
-    border: solid 5px;
-    border-color: gold;
-    border-radius: 10px;
+    border: solid 2px;
+    border-color: #f8be39;
 }
 
 .logo {
@@ -29,7 +26,7 @@
 .nav {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
     gap: 1rem;
@@ -40,9 +37,9 @@
 .nav-link, .nav-link:visited, .nav-link:link {
     width: 100%;
     text-align: center;
-    color: gold;
+    color: #f8be39;
 }
 
 .nav-link:hover, .nav-link:active {
-    color:white;
+    color:#f9f3ea;
 }
