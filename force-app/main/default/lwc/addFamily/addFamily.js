@@ -1,65 +1,53 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { createRecord } from 'lightning/uiRecordApi';
 import CONTACT_OBJECT from '@salesforce/schema/Contact';
 import FIRSTNAME_FIELD from '@salesforce/schema/Contact.FirstName';
 import LASTNAME_FIELD from '@salesforce/schema/Contact.LastName';
 import PHONE_FIELD from '@salesforce/schema/Contact.Phone';
 import TITLE_FIELD from '@salesforce/schema/Contact.Title';
+import PROPERTY_FIELD from '@salesforce/schema/Contact.Property__c';
 import getFamilyMembers from '@salesforce/apex/ContactHelper.getFamilyMembers';
-import id from '@salesforce/user/Id';
-export default class AddFamily extends LightningElement {
+import Id from '@salesforce/user/Id';
+
+export default class LdsCreateRecord extends LightningElement {
     
-    @track firstName = FIRSTNAME_FIELD;
-    @track lastName = LASTNAME_FIELD;
-    @track phone = PHONE_FIELD;
-    @track title = TITLE_FIELD;
-    userId = id;
+    firstName = '';
+    lastName = '';
+    phone = '';
+    title = '';
+    userId = Id;
+
 
     @wire(getFamilyMembers, {userId : "$userId"})
     familyMembers;
 
-    handleFirstNameChange(event) {
-        this.firstName = event.target.value;
-    }
-
-    handleLastNameChange(event) {
-        this.lastName = event.target.value;
-    }
-
-    handlePhoneChange(event) {
-        this.phone = event.target.value;
-    }
-
-    handleTitleChange(event) {
-        this.title = event.target.value;
-    }
-
-    async createContact() {
+   
+    /*async createContact() {
         const fields = {};
-        fields[FIRSTNAME_FIELD.fieldApiName] = this.firstName;
-        fields[LASTNAME_FIELD.fieldApiName] = this.lastName;
-        fields[PHONE_FIELD.fieldApiName] = this.phone;
-        fields[TITLE_FIELD.fieldApiName] = this.title;
+        fields[FIRSTNAME_FIELD.fieldApiName] = this.template.refs.firstName.value;
+        fields[LASTNAME_FIELD.fieldApiName] = this.template.refs.lastName.value;
+        fields[PHONE_FIELD.fieldApiName] = this.template.refs.phone.value;
+        fields[TITLE_FIELD.fieldApiName] = this.template.refs.title.value;
+        //fields[PROPERTY_FIELD.fieldApiName] = familyMembers.Data[0].Property__c;
         const recordInput = { apiName: CONTACT_OBJECT.objectApiName, fields };
-
         try {
             const contact = await createRecord(recordInput);
-            
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Success',
-                    message: 'Contact has been created.',
+                    message: 'Contact created.',
                     variant: 'success'
                 })
             );
         } catch (error) {
             this.dispatchEvent(
                 new ShowToastEvent({
-                    title: 'Error creating contact.',
-                    message: reduceErrors(error).join(', '),
-                    variant: 'Error'
+                    title: 'Error creating record',
+                    message: 'Error in creating contact.',
+                    variant: 'error'
                 })
             );
         }
-    }
+    } */
 }

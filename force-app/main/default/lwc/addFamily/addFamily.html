@@ -1,27 +1,14 @@
 <template>
-  <div class={messageBackground}>
-    <div class="slds-col slds-size_1-of-1">
-        <div class="slds-grid slds-grid_align-center">
-            <div class="slds-text-heading_medium slds-text-color_inverse" style="font-weight: bold;">{messageTitle}</div>
-        </div>
-    </div>
-    <div class="slds-col slds-size_1-of-1">
-        <div class="slds-grid slds-grid_align-center">
-            <div class="slds-text-heading_small slds-text-color_inverse" style="font-weight: bold;">{messageBody}</div>
-        </div>
-    </div>
-  </div >
-  <lightning-card title="Add Family Member" icon-name="standard:record">
-  <div class="slds-m-around_medium">
-    <lightning-input-field field-name={FIRSTNAME_FIELD}> </lightning-input-field>
-    <lightning-input-field field-name={LASTNAME_FIELD}> </lightning-input-field>
-    <lightning-input-field field-name={PHONE_FIELD}> </lightning-input-field>
-    <lightning-input-field field-name={TITLE_FIELD}> </lightning-input-field>
-      <lightning-button
-          label="Submit"
-          variant="brand"
-          onclick={createContact}
-      ></lightning-button>
-    </div>
-  </lightning-card>
+  <div lwc-ref="container">
+      <template lwc:if={familyMembers.data}>
+          <div class="slds-grid slds-gutters slds-wrap">
+              <template for:each={familyMembers.data} for:item="familyMember">
+                <lightning-card key={familyMember.Id} class="slds-m-vertical_medium slds-col slds-size_1-of-1 slds-small-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12">
+                  <p>{familyMember.firstName}</p>
+                  <p>{familyMember.lastName}</p>
+              </lightning-card>  
+              </template>
+          </div>
+      </template>
+  </div>
 </template>
