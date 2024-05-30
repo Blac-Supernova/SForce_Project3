@@ -11,9 +11,11 @@ export default class Project3Header extends LightningElement {
     isNotGuest = !isGuest;
 
 
-    get logoutLink() {
-        const sitePrefix = basePath.replace("/", "");
-        return '/${sitePrefix}vforcesite/secur/logout.jsp';
+    get logoutUrl() {
+        const sitePrefix = basePath.replace(
+            /\/s$/i, ""
+        );
+        return sitePrefix + "/secur/logout.jsp";
     }
 
    //hard code
