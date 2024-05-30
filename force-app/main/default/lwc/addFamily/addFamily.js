@@ -1,19 +1,18 @@
-
 import { LightningElement, track, wire } from 'lwc';
 import { createRecord } from 'lightning/uiRecordApi';
-import id from '@salesforce/user/Id';
 import CONTACT_OBJECT from '@salesforce/schema/Contact';
 import FIRSTNAME_FIELD from '@salesforce/schema/Contact.FirstName';
 import LASTNAME_FIELD from '@salesforce/schema/Contact.LastName';
 import PHONE_FIELD from '@salesforce/schema/Contact.Phone';
 import TITLE_FIELD from '@salesforce/schema/Contact.Title';
 import getFamilyMembers from '@salesforce/apex/ContactHelper.getFamilyMembers';
+import id from '@salesforce/user/Id';
 export default class AddFamily extends LightningElement {
     
-    @track firstName = '';
-    @track lastName = '';
-    @track phone = '';
-    @track title = '';
+    @track firstName = FIRSTNAME_FIELD;
+    @track lastName = LASTNAME_FIELD;
+    @track phone = PHONE_FIELD;
+    @track title = TITLE_FIELD;
     userId = id;
 
     @wire(getFamilyMembers, {userId : "$userId"})
@@ -33,15 +32,6 @@ export default class AddFamily extends LightningElement {
 
     handleTitleChange(event) {
         this.title = event.target.value;
-    }
-
-    handleSave() {
-        const fields = {
-            FirstName: this.firstName,
-            LastName: this.lastName,
-            Phone: this.phone,
-            Title: this.title
-        };
     }
 
     async createContact() {
