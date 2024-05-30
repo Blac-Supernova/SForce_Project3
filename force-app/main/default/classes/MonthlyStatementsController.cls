@@ -1,14 +1,17 @@
 public with sharing class MonthlyStatementsController {
     @AuraEnabled(cacheable=true)
     public static List<Monthly_Statement__c> getMonthlyStatementsByUserId(Id userId) {
-        List<Contact> matchingContact = [SELECT Id FROM Contact WHERE Id IN (SELECT ContactId FROM User WHERE Id = :userId)];
-        Id contactId;
-        if (matchingContact.size() > 0) {
-            contactId = matchingContact[0].Id;
+        User u;
+        try {
+            u = [SELECT ContactId FROM User WHERE Id = :userId];
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
         }
-        else {
-            return null;
+        
+        try {
+            return [SELECT Name, Monthly_Amount__c FROM Monthly_Statement__c WHERE Contact__r.Id = :u.ContactId];
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
         }
-        return [SELECT Name, Monthly_Amount__c FROM Monthly_Statement__c WHERE Contact__r.Id = :contactId];
     }
 }
