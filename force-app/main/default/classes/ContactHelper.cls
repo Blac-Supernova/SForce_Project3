@@ -6,9 +6,20 @@ public without sharing class ContactHelper {
     @AuraEnabled(cacheable=true)
     public static List<Contact> getFamilyMembers(String userId){
         try {
-            user u = [SELECT Id, ContactId FROM User];
-            Contact con = [SELECT Id, property__c.Id FROM Contact];
-            return [SELECT firstName, lastName FROM Contact WHERE property__c.Id = con.property__c.Id];
+            //Get contact ID of current user where ID from paramter is equal to the current user. 
+            user u = [SELECT ContactId 
+                        FROM User
+                        WHERE Id =: userId];
+
+            Contact con = [SELECT Id, Property__r.Id
+                                    FROM Contact 
+                                    WHERE Id =: u.ContactId];
+
+            return [SELECT firstName, lastName 
+                    FROM Contact 
+                    WHERE Property__r.Id =: con.Property__r.Id];
+                    
+
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }

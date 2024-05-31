@@ -1,18 +1,31 @@
-<!-- sldsValidatorIgnore -->
 <template>
-	<template lwc:if={loggedIn}>
-		<lightning-card title="Monthly Statements" icon-name="custom:custom63">
-			<template lwc:if={monthlyStatements}>
-				<lightning-datatable
-					hide-checkbox-column
-					key-field="Id"
-					data={monthlyStatements}
-					columns={columns}>
-				</lightning-datatable>
-			</template>
-			<template lwc:elseif={error}>
-				<p>{error}</p>
-			</template>
-		</lightning-card>
-	</template>
+    <!-- sldsValidatorIgnore -->
+    <template lwc:if={loggedIn}>
+        <div class="custom-container">
+            <h1 class="custom-header">&nbsp;<u>&nbsp;Monthly Statements&nbsp;</u>&nbsp;</h1>
+            <template lwc:if={monthlyStatements}>
+                <div class="custom-datatable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Monthly Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={monthlyStatements} for:item="statement">
+                                <tr key={statement.Id}>
+                                    <td>{statement.Name}</td>
+                                    <td>${statement.Monthly_Amount__c}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </template>
+            <template lwc:if={error}>
+                <p>{error}</p>
+            </template>
+        </div>
+    </template>
 </template>

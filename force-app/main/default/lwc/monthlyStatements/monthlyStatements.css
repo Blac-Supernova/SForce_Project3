@@ -1,0 +1,39 @@
+.custom-header {
+    font-size: 1.35rem;
+	font-weight: bold;
+}
+
+.custom-container {
+    border: none;
+}
+
+.custom-datatable {
+    background-color: #000;
+    overflow: auto;
+	margin-top: 10px;
+    border-radius: 0.2rem;
+}
+
+.custom-datatable table {
+    border-collapse: collapse;
+    border-radius: 0.2rem;
+}
+
+.custom-datatable th,
+.custom-datatable td {
+    border: 2px solid rgb(248, 190, 57);
+    background-color: #000;
+    color: #fff;
+    padding: 8px;
+    width: 50%;
+    border-radius: 0.2rem;
+}
+
+.custom-datatable th {
+    font-weight: bold;
+	font-size: 1.1rem;
+}
+
+.custom-datatable tr:hover {
+    background-color: inherit;
+}

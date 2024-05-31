@@ -1,25 +1,30 @@
+<!--<template>
+  <div lwc-ref="container">
+      <template lwc:if={familyMembers.data}>
+          <div class="slds-grid slds-gutters slds-wrap">
+              <template for:each={familyMembers.data} for:item="familyMember">
+                <lightning-card key={familyMember.Id} class="slds-m-vertical_medium slds-col slds-size_1-of-1 slds-small-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12">
+                  <p>{familyMember.firstName}</p>
+                  <p>{familyMember.lastName}</p>
+              </lightning-card>  
+              </template>
+          </div>
+      </template> 
+  </div>
+</template>-->
 <template>
-    <lightning-card title="Add Family Member" icon-name="standard:contact">
-        <div style="margin-left: 6%" if:true={error}>
-            <lightning-badge label={error} style="color: red;"></lightning-badge>
-        </div>
-            <div class="slds-m-around--xx-large">
-                <div class="container-fluid">
-                    <div class="form-group">
-                        <lightning-input label="Enter First Name" name="firstName" required="required" type="text" value={FirstName} onchange={handleFirstNameChange}></lightning-input>
-                    </div>  
-                    <div class="form-group">
-                        <lightning-input label="Enter Last Name" name="lastName" required="required" type="text" value={LastName} onchange={handleLastNameChange}></lightning-input>
-                    </div>
-                    <div class="form-group">
-                        <lightning-input label="Enter Phone Number" name="Phone" type="number" value={Phone} onchange={handlePhoneChange}></lightning-input>
-                    </div>
-                    <div class="form-group">
-                        <lightning-input label="Enter Title" name="title" type="text" value={Title} onchange={handleTitleChange}></lightning-input>
-                    </div>
-                </div>
-                <br/>
-                <lightning-button label="Submit" onclick={handleSave} variant="brand"></lightning-button>
-            </div>
-    </lightning-card>
+  <lightning-card title="Family Members">
+      <template lwc:if={familyMembers.data}>
+          <div class="slds-grid slds-wrap">
+              <template for:each={familyMembers.data} for:item="familyMember">
+                  <div key={familyMember.Id} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                      <div class="familyMember-card">
+                        <p>{familyMember.firstName}</p>
+                        <p>{familyMember.lastName}</p>
+                      </div>
+                  </div>
+              </template>
+          </div>
+      </template>
+  </lightning-card>
 </template>
