@@ -1,0 +1,13 @@
+.footer-container {
+    background-color: black;
+    padding: 1rem;
+    align-items: center;
+    border: solid 2px;
+    border-color: #f8be39;
+}
+
+.tile-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,13 +1,13 @@
 <!-- sldsValidatorIgnore -->
 <template>
 	<template lwc:if={loggedIn}>
-		<lightning-card class= "lightningCard" title="Monthly Statements" icon-name="custom:custom63">
+		<lightning-card title="Monthly Statements">
 			<template lwc:if={monthlyStatements}>
-				<lightning-datatable class = "datatable"
+				<lightning-datatable
 					hide-checkbox-column
 					key-field="Id"
 					data={monthlyStatements}
-					columns={columns} >
+					columns={columns}>
 				</lightning-datatable>
 			</template>
 			<template lwc:elseif={error}>

@@ -47,6 +47,14 @@ export default class PropertyViewPage extends NavigationMixin(LightningElement) 
         }
     }
 
+    //Removes the white description space from carousel images
+    renderedCallback() {
+        const style = document.createElement('style');
+        style.innerText = `.slds-carousel__content {
+            display: none;
+        }`;
+        this.template.querySelector('lightning-carousel').appendChild(style);
+    }
     get hasImages() {
         return this.propertyImages.length > 0;
     }
@@ -60,4 +68,6 @@ export default class PropertyViewPage extends NavigationMixin(LightningElement) 
     square = square;
     description = description;
     petsAllowed = petsAllowed;
+
+
 }

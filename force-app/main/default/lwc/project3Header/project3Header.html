@@ -6,16 +6,22 @@
                     <img class="logo" src={companyLogo} alt="Genie Properties Logo">
                 </div>
                 <div class="nav">
-                    <a class="nav-link" href="/">Home</a>
+                <ul>
+                    <li><a class="nav-link" href="/">Home</a></li>
+                </ul>
                     <template lwc:if={isNotGuest}>
-                        <a class="nav-link" href="/my-property">My Property</a>
-                        <a class="nav-link" href={logoutUrl}>Logout</a>
+                    <ul>
+                        <li><a class="nav-link" href="/my-property">My Property</a></li>
+                        <li><a class="nav-link" href={logoutUrl}>Logout</a></li>
                         <!-- <lightning-button variant="destructive" label="Logout" class="logout-button" onclick={handleClick}></lightning-button> -->
+                    </ul>
                     </template>
                     <template lwc:else>
-                        <a class="nav-link" href="/login">Login</a>
-                        <a class="nav-link" href="/SelfRegister">Register</a>
+                    <ul>
+                        <li><a class="nav-link" href="/login">Login</a></li>
+                        <li><a class="nav-link" href="/SelfRegister">Register</a></li>
                         <!-- <lightning-button variant="success" label="Login" class="login-button" onclick={handleClick}></lightning-button> -->
+                    </ul>
                     </template>
                     
                 </div>

@@ -3,23 +3,31 @@
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    box-shadow: 0 4px 8px 0 #3b2c0a;
+    box-shadow: 0 4px 8px 0 #6a6a6a;
     transition: 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f9f3ea;
+    color: #f9f3ea;
+    background-color: #black;
+    
+ 
 }
 
 .property-card:hover {
-    box-shadow: 0 8px 16px 0 #3b2c0a;
+    box-shadow: 0 8px 16px 0 #f9f3ea;
+
+}
+
+h1 {
+    color : #f8be39;
 }
 
 .property-image {
     width: 100%;
     height: auto;
     border-bottom: 1px solid #b07f0f;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .slds-col {

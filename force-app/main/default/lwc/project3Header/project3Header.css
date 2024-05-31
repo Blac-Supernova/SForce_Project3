@@ -20,6 +20,12 @@
     align-items: center;
 }
 
+li {
+    display : inline;
+    padding: 8px;
+}
+
+
 .nav {
     flex: 1;
     display: flex;
@@ -29,12 +35,14 @@
     gap: 1rem;
     text-align: center;
     padding-left: 65rem;
+    
 }
 
 .nav-link, .nav-link:visited, .nav-link:link {
     width: 100%;
     text-align: center;
     color: #f8be39;
+    
 }
 
 .nav-link:hover, .nav-link:active {

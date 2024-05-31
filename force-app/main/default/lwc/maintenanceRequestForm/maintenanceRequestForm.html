@@ -1,5 +1,4 @@
-<template >
-    <div class= "theWholeShabang" >
+<template>
     <div class={messageBackground}>
         <div class="slds-col slds-size_1-of-1">
             <div class="slds-grid slds-grid_align-center">
@@ -11,10 +10,9 @@
                 <div class="slds-text-heading_small slds-text-color_inverse" style="font-weight: bold;">{messageBody}</div>
             </div>
         </div>
-    </div >
+    </div>
     
-    <lightning-record-edit-form 
-    object-api-name="Case" 
+    <lightning-record-edit-form object-api-name="Case" 
     record-type-id={maintenanceRecordTypeId}
     onsuccess={handleSuccess}
     onsubmit={handleSubmit}>
@@ -24,10 +22,8 @@
     <lightning-input-field field-name={subjectField}> </lightning-input-field>
     <lightning-input-field field-name={descriptionField}> </lightning-input-field>
     <div class="slds-var-m-top_medium slds-grid slds-grid_align-center">
-        <lightning-button variant="brand" class="button" type="submit" label="Request maintenance" >
-            <!--Color of button will depend on the brand color of the theme-->
+        <lightning-button variant="brand" type="submit" label="Request maintenance">
         </lightning-button>
     </div>
 </lightning-record-edit-form>
-</div>
 </template>

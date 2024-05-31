@@ -1,13 +1,17 @@
 <template>
+    
     <template lwc:if={propertyId}>
         <template lwc:if={hasImages}>
             <div class="slds-size_3-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Property Images
-                    <lightning-carousel>
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                    <h1 class="title">Property Images</h1>
+                    <lightning-carousel class = "pictures">
                         <template for:each={propertyImages} for:item="image">
                         <lightning-carousel-image
                             src={image.imageURL}
                             key={image.id}
+                            header = "Header goes here"
+                            description = "description goes here"
                             >
                         </lightning-carousel-image>
                         </template>
@@ -16,7 +20,8 @@
             </div>
         </template>
         
-        <lightning-record-view-form object-api-name={objectApiName} record-id={propertyId}>
+        <div class = "form">
+        <lightning-record-view-form object-api-name={objectApiName} record-id={propertyId} >
             <lightning-output-field field-name={address}></lightning-output-field>
             <lightning-output-field field-name={description}></lightning-output-field>
             <lightning-output-field field-name={numberOfBaths}></lightning-output-field>
@@ -24,6 +29,7 @@
             <lightning-output-field field-name={square}></lightning-output-field>
             <lightning-output-field field-name={petsAllowed}></lightning-output-field>
         </lightning-record-view-form>
+        </div>
     
     </template>
 </template>
