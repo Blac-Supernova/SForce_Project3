@@ -1,7 +1,8 @@
 <template>
-    <lightning-card title="Available Properties">
+    <lightning-card >
+        <h1 slot="title">Available Properties</h1>
         <template lwc:if={properties.data}>
-            <div class="slds-grid slds-wrap">
+            <div class="slds-grid slds-wrap slds-align_absolute-center">
                 <template for:each={properties.data} for:item="property">
                     <template lwc:if={property.Is_Available__c}>
                     <div key={property.Id} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">

@@ -3,12 +3,15 @@
     <template lwc:if={propertyId}>
         <template lwc:if={hasImages}>
             <div class="slds-size_3-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Property Images
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                    <h1 class="title">Property Images</h1>
                     <lightning-carousel class = "pictures">
                         <template for:each={propertyImages} for:item="image">
                         <lightning-carousel-image
                             src={image.imageURL}
                             key={image.id}
+                            header = "Header goes here"
+                            description = "description goes here"
                             >
                         </lightning-carousel-image>
                         </template>

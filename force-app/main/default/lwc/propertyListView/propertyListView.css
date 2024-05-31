@@ -11,13 +11,16 @@
     color: #f9f3ea;
     background-color: #black;
     
-    
  
 }
 
 .property-card:hover {
     box-shadow: 0 8px 16px 0 #f9f3ea;
 
+}
+
+h1 {
+    color : #f8be39;
 }
 
 .property-image {

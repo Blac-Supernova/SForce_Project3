@@ -11,11 +11,14 @@ public with sharing class ContactHelper {
                         FROM User
                         WHERE Id =: userId];
 
+            List<Property__c> userInfo = [SELECT Id, (SELECT Id FROM Contacts__r WHERE Id =: u.ContactId) FROM Property__c];
+
+
             Contact con = [SELECT Id, Property__r.Id
                                     FROM Contact 
                                     WHERE Id =: u.ContactId];
 
-            return [SELECT firstName, lastName 
+            return [SELECT firstName, lastName, Property__c
                     FROM Contact 
                     WHERE Property__r.Id =: con.Property__r.Id];
                     
