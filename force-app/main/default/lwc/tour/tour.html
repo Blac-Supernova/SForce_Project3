@@ -1,17 +1,19 @@
 <template>
-    <lightning-card title="Property Tour">
+    <lightning-card> <h1>Property Tour</h1>
         <template if:true={properties}>
             <lightning-layout multiple-rows>
                 <template for:each={properties} for:item="property">
                     <lightning-layout-item key={property.Id} size="12" class="slds-p-around_small">
                         <lightning-card title={property.Name} icon-name="standard:house">
+                            <div class = "info">
                             <p class="slds-p-horizontal_small">
                                 <strong>Address:</strong> {property.Address}<br>
                                 <strong>Price:</strong> {property.Price}<br>
                                 <strong>Description:</strong> {property.Description}
                             </p>
+                            </div>
                             <div class="slds-p-horizontal_small">
-                                <lightning-button label="View Details" onclick={onclickhandleviewdetails} data-id={property.Id}></lightning-button>
+                                <lightning-button variant = "brand" label="View Details" onclick={onclickhandleviewdetails} data-id={property.Id}></lightning-button>
                             </div>
                         </lightning-card>
                     </lightning-layout-item>

@@ -1,12 +1,14 @@
 <template>
-    <lightning-card title="Tour Date Form" icon-name="custom:custom63">
+    <lightning-card ><h1>Tour Date Form</h1>
+        <div class = "form">
         <div class="slds-p-around_medium">
             <lightning-input label="Name" value={name} onchange={handleNameChange}></lightning-input>
             <lightning-input label="Email" type="email" value={email__c} onchange={handleEmailChange}></lightning-input>
             <lightning-input label="Date" type="date" value={date__c} onchange={handleDateChange}></lightning-input>
             <lightning-input label="Time" type="time" value={time__c} onchange={handleTimeChange}></lightning-input>
             <lightning-input label="Property" type="property" value={property__c} onchange={handlePropertyChange}></lightning-input>
-            <lightning-button label="Submit" onclick={handleSubmit} class="slds-m-top_medium"></lightning-button>
+            <lightning-button variant = "brand" label="Submit" onclick={handleSubmit} class="slds-m-top_medium"></lightning-button>
+        </div>
         </div>
     </lightning-card>
 </template>
